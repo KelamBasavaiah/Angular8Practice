@@ -1,0 +1,127 @@
+<div>
+    <form name="detailForm" (ngSubmit)="detailForm.form.valid && formSubmit(details)" #detailForm="ngForm" >
+        <label >Name</label><br>
+        <input type="text" name="uname" #uname="ngModel"  [(ngModel)]="details.name" required minlength="5" autocomplete="off">
+        <div *ngIf="(uname.dirty || uname.touched || detailForm.submitted) && (uname.invalid ) ">             
+            <div *ngIf="uname.errors.required" style="color:red">
+                Name is required
+            </div>
+            <div *ngIf="uname.errors.minlength" style="color:red">
+                minlength is 5
+            </div>
+
+        </div>        
+        <br><br>
+
+        <label >Age</label><br>
+        <input type="number" name="uage" #uage="ngModel"  [(ngModel)]="details.age"  required min="20" max="60">
+        <div *ngIf="(uage.dirty || uage.touched || detailForm.submitted) && uage.invalid">             
+            <div *ngIf="uage.errors.required" style="color:red">
+                age can't be empty
+            </div>
+            <div *ngIf="uage.errors.min" style="color:red">
+                min age is 20
+            </div>
+            <div *ngIf="uage.errors.max" style="color:red">
+                min age is 60
+            </div>
+        </div><br><br>
+
+        <label >Date of Join</label><br>
+        <input type="date" name="uDOB" #uDOB="ngModel" [(ngModel)]="details.DOB" required>
+        <div *ngIf="(uDOB.dirty || uDOB.touched || detailForm.submitted) && (uDOB.invalid ) ">             
+            <div *ngIf="uDOB.errors.required" style="color:red">
+                DOB is required
+            </div>
+        </div> 
+        <br><br>
+
+        <label >id</label><br>
+        <input type="password" name="uId" #uId="ngModel" [(ngModel)]="details.id" required minlength="3"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        <div *ngIf="(uId.dirty || uId.touched || detailForm.submitted) && (uId.invalid ) ">             
+            <div *ngIf="uId.errors.required" style="color:red">
+                ID is required
+            </div>
+            <div *ngIf="uId.errors.minlength" style="color:red">
+                Minimum length is 3
+            </div>
+            <div *ngIf="uId.errors.pattern" style="color:red">
+             One number & one uppercase & 8 characters required
+            </div>
+        </div><br><br>
+        <label >Mail</label><br>
+        <input type="email" name="uMail" #uMail="ngModel" [(ngModel)]="details.mail" required email autocomplete="off">
+        <div *ngIf="(uMail.dirty || uMail.touched || detailForm.submitted) && (uMail.invalid ) ">             
+            <div *ngIf="uMail.errors.required" style="color:red">
+                Mail is required
+            </div>
+            <div *ngIf="uMail.errors.email" style="color:red">
+               enter Valid email
+            </div>
+        </div><br><br>
+
+        <label >Gender</label><br>    
+        <input type="radio" value="Male" name="Gender" #Gender="ngModel" [(ngModel)]="details.gender"> Male   
+        <input type="radio" value="Female" name="Gender" #Gender="ngModel" [(ngModel)]="details.gender" checked > Female 
+        <input type="radio" value="other" name="Gender" #Gender="ngModel" [(ngModel)]="details.gender" > Other  <br><br> 
+    
+        <label>Grade :- {{details.grade}}</label><br>
+        0<input type="range" min="0" max="10" name="grade" #grade="ngModel" [(ngModel)]="details.grade" required>10
+        <div *ngIf="(grade.dirty || grade.touched || detailForm.submitted) && (grade.invalid ) ">             
+            <div *ngIf="grade.errors.required" style="color:red">
+                Grade is required
+            </div>
+        </div><br><br>
+        
+        <input type="checkbox" [(ngModel)]="details.insurance" name="uinsurance" #uinsurance="ngModel" >
+        <label >   Has insurance</label><br><br>
+        
+        <input type="submit">&nbsp;&nbsp;
+         <input type="reset">
+    </form>
+</div>
+<!-- <div>
+    
+    <label for="uName">Name</label><br>
+    <input type="text" id="uName" [(ngModel)]="details.name" required><br><br>
+
+    <label for="uAge">Age</label><br>
+    <input type="number" id="uAge" [(ngModel)]="details.age" required><br><br>
+
+    <label for="uDOB">Date of birth</label><br>
+    <input type="date" id="uDOB" [(ngModel)]="details.DOB" required><br><br>
+
+    <label for="uId">id</label><br>
+    <input type="password" id="uId" [(ngModel)]="details.id" required><br><br>
+
+    <label for="uMail">Mail</label><br>
+    <input type="email" id="uMail" [(ngModel)]="details.mail" required><br><br>
+
+    <label >Gender</label><br>
+    
+        <input type="radio" value="Male" name="Gender" [(ngModel)]="details.gender" > Male   <br>
+        <input type="radio" value="Female" name="Gender" [(ngModel)]="details.gender"> Female <br>
+        <input type="radio" value="other" name="Gender" [(ngModel)]="details.gender"> Other <br><br>    
+    
+   
+
+    <label>Grade :- {{details.grade}}</label><br>
+    <input type="range" min="0" max="10" [(ngModel)]="details.grade"><br><br>
+
+    <label>Position</label><br>
+    
+        <input type="checkbox" value="FullTime" [(ngModel)]="details.position"> Full-time 
+        <input type="checkbox" value="PartTime" [(ngModel)]="details.position">Part Time
+        <input type="checkbox" value="Contract" [(ngModel)]="details.position">Contract
+    <br><br>
+   
+
+    <input type="submit" (click)="formSubmit(details)">&nbsp;&nbsp;
+    <input type="reset">
+   
+
+
+</div> -->
+
+
+

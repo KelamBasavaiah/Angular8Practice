@@ -1,0 +1,25 @@
+<p>day1 works!</p>
+<div *ngIf="numberArray.length>5">
+    <p>ngIf and ngFor</p>
+   <span *ngFor="let n of numberArray">{{n}},</span>
+</div>
+----
+
+
+<div>
+    <input #customerInput>{{customerInput.value}}
+</div>
+
+<div>
+    <button (click)="click1(customerInput.value)" [disabled]="false">Event</button>
+</div>
+<div [ngSwitch]="initial">
+    <p  *ngSwitchCase="1">comedy</p>
+    <p  *ngSwitchCase="2">comedy</p>
+    <p *ngSwitchDefault> enter rank your wish</p>
+</div>
+
+<div>
+    <input type="text" [(ngModel)]="initial" placeholder="something here your rank">{{initial}}
+</div>
+<app-parent-child [nm]="numberArray" (newEvent)="addItem($event)"></app-parent-child>

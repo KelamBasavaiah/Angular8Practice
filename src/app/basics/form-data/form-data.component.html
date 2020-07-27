@@ -1,0 +1,73 @@
+<div class="form">
+  <h1>Templete Driven Forms data</h1>
+  <div *ngIf="details.length<1" class="card">
+    <p>No data found</p>
+  </div>
+  <div *ngIf="details.length>=1">
+
+    <div *ngFor="let array of details" class="card">
+      <div>
+        <p>Name : {{array.name}}</p>
+      </div>
+      <div>
+        <p>Age :{{array.age}}</p>
+      </div>
+      <div>
+        <p>DOJ :{{array.DOB}}</p>
+      </div>
+      <div>
+        <p>Id :{{array.id}}</p>
+      </div>
+      <div>
+        <p>Mail :{{array.mail}}</p>
+      </div>
+      <div>
+        <p>Gender:{{array.gender}}</p>
+      </div>
+      <div>
+        <p>grade : {{array.grade}}</p>
+      </div>
+      <button (click)="deleteTDF(array)">Delete</button> &nbsp;<button (click)="editTDF(array)">Edit</button>
+    </div>
+  </div>
+</div>
+<div class="form">
+  <h1>Reactive forms data</h1>
+  <div *ngIf="!dummyData" style="float: left;">
+    <button (click)="addDummyData()">Add Dummy Data</button>&nbsp;
+  </div>
+  <div >
+    <button (click)="gotoTable()">View in Table</button>
+  </div>
+  <div *ngIf="rdetails.length<1" class="card">
+    <p>No data found</p>
+    <button (click)="addDummyData()">Add Dummy Data</button>
+  </div>
+  <div *ngIf="rdetails.length>=1">
+
+    <div *ngFor="let array of rdetails" class="card">
+      <div>
+        <p>Name : {{array.Name}}</p>
+      </div>
+      <div>
+        <p>Qualification :{{array.Qualification}}</p>
+      </div>
+      <div>
+        <p>DOJ :{{array.DOB}}</p>
+      </div>
+      <div>
+        <p>Gender :{{array.Gender}}</p>
+      </div>
+      <div>
+        <p>Mail :{{array.Mail}}</p>
+      </div>
+      <div>
+        <p>Id:{{array.Id}}</p>
+      </div>
+      <div>
+        <p>Grade : {{array.Grade}}</p>
+      </div>
+      <button (click)="deleteRF(array)">Delete</button> &nbsp;<button (click)="editRF(array)">Edit</button>
+    </div>
+  </div>
+</div>

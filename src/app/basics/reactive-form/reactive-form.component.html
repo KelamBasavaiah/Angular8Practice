@@ -1,0 +1,107 @@
+<form name="form" [formGroup]="studentForm" (ngSubmit)=" formSubmit()">
+    <div class="wholeForm" >
+
+        <div class="formInputs">
+            <label  > Name</label><br>
+            <input type="text" formControlName="Name" >
+            <div *ngIf=" (f.Name.dirty || f.Name.touched || submitted) && f.Name.errors ">
+                <div *ngIf="f.Name.errors.required" style="color:red">
+                    <p> * Enter the name</p>
+                </div>
+                <div *ngIf="f.Name.errors.minlength" style="color:red">
+                    <p>** Minimum length 2</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div class="formInputs">
+            <label >Date Of Birth</label><br>
+            <input type="date" formControlName="DOB" >
+            
+            <div *ngIf=" (f.DOB.dirty || f.DOB.touched || submitted ) && f.DOB.errors">
+                <div *ngIf="f.DOB.errors.required" style="color:red">
+                    <p>* Enter the Date of Birth</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="formInputs">
+            <label >Qualification</label><br>
+            <select formControlName="Qualification" >                               
+                <option value="B.E" >B.E</option>
+                <option value="BTech">BTech</option>
+                <option value="M.E">M.E</option>
+                <option value="MTech">MTech</option>
+              </select>
+              <div *ngIf=" (f.Qualification.dirty || f.Qualification.touched || submitted ) && f.Qualification.errors">
+                <div *ngIf="f.Qualification.errors.required" style="color:red">
+                    <p>* select Qualification</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="formInputs">
+            <label >Gender</label><br>
+            <input type="radio" value="Male" name="Gender" formControlName="Gender" >Male &nbsp;
+            <input type="radio" value="Female" name="Gender" formControlName="Gender">Female 
+            <div *ngIf=" (f.Gender.dirty || f.Gender.touched || submitted) && f.Gender.errors">
+                <div *ngIf="f.Gender.errors.required" style="color:red">
+                    <p>* select Gender</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="formInputs">
+            <label >Mail</label><br>
+            <input type="email" formControlName="Mail">
+            <div *ngIf=" (f.Mail.dirty || f.Mail.touched ||submitted ) && f.Mail.errors">
+                <div *ngIf="f.Mail.errors.required" style="color: red;">
+                    <p>* Enter mail</p>
+                </div>
+                <div *ngIf="f.Mail.errors.email" style="color: red;">
+                    <p>** Enter valid mail</p>
+                </div>
+            </div>
+        </div>
+            
+        <div class="formInputs">
+            <label >Grade {{range.value}}</label><br>
+            0<input #range type="range" formControlName="Grade" min="0" max="10">10
+            <div *ngIf=" (f.Grade.dirty || f.Grade.touched ||submitted) && f.Grade.errors">
+                <div *ngIf="f.Grade.errors.required" style="color:red">
+                    <p>* Enter Grade</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="formInputs">
+            <label >Id</label><br>
+            <input type="password" formControlName="Id">
+            <div *ngIf=" (f.Id.dirty || f.Id.touched || submitted) && f.Id.errors">
+                <div *ngIf="f.Id.errors.required" style="color:red">
+                    <p>*Enter Id</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="formInputs">        
+            <input type="checkbox" formControlName="Terms">
+            <label >  Agree T&C</label><br>
+            <div *ngIf=" (f.Terms.dirty || f.Terms.touched || submitted) && f.Terms.errors">
+                <div *ngIf="f.Terms.errors" style="color:red">
+                    <p>* Accepts T&C</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="formInputs">       
+            <button type="submit">submit</button>&nbsp;
+            <div *ngIf=" submitted && studentForm.invalid" style="color:red">
+                
+                    <p>* Fill all reqired Feilds</p>
+              
+            </div>
+        </div>
+    </div>
+</form>

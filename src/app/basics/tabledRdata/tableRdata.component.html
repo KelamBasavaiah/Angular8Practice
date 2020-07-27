@@ -1,0 +1,39 @@
+<div>
+    <table>
+        <thead>
+            <tr  >
+                <th >#</th>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Qualification</th>
+                <th>Gender</th>
+                <th>Mail</th>
+                <th>Grade</th>
+                <th>Id</th>
+                <th>T&c aggred</th>
+                <th></th>
+    
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let k of rForm ; index as i">
+                <td>{{i+1}}</td>
+                <td>{{k.Name}}</td>
+                <td>{{k.DOB}}</td>
+                <td>{{k.Qualification}}</td>
+                <td>{{k.Gender}}</td>
+                <td>{{k.Mail}}</td>
+                <td>{{k.Grade}}</td>
+                <td>{{k.Id}}</td>
+                <td>{{k.Terms}}</td>
+                <td><button (click)="editRF(k)">Edit</button> &nbsp; <button (click)="deleteRF(k)">Delete</button></td>
+
+            </tr>
+        </tbody>
+        <tfoot>
+           
+                
+           
+        </tfoot>
+    </table>
+</div>
